@@ -1,6 +1,7 @@
 ---
 title: Drug Explorer
 date: 2020-11-25
+description: Drug Explorer Demo
 image: images/drug-explorer.jpg
 excerpt: >-
   Get relevant information about drugs from FDA, Dailymed and other databases.
