@@ -1,0 +1,22 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+{% for section in page.params.sections %}
+  {% set include_dict = {'section': section, 'site': site} %}
+  {% set component = section.type | component_file %}
+  {% include component %}
+{% endfor %}
+
+{% set section = include_dict.section %}
+{% set background = section.background %}
+{% set background_color = background.background_color | default('white', true) %}
+{% set background_opacity_pct = background.background_image_opacity | default(100, true) %}
+{% set background_opacity = background_opacity_pct * 0.01 %}
+{% set background_size = background.background_image_size | default('cover', true) %}
+{% set background_repeat = background.background_image_repeat | default('no-repeat', true) %}
+
+
+
+
+{% endblock %}

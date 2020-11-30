@@ -1,0 +1,16 @@
+baseurl: "/"
+title: "Boost By Life Sciences"
+init_is: "assets/js/init.js"
+page_load_js: "assets/js/page-load.js"
+page_unload_js: "assets/js/page-unload.js"
+params:
+  description: 
+  header:
+    title: Boost by Life Sciences
+    has_nav: true
+sass:
+  input_file: sass/main.scss
+  output_file: assets/css/main.css
+  indentWidth: 4
+  outputStyle: compressed
+  precision: 10

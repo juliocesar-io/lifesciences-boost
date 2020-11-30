@@ -1,0 +1,16 @@
+{% set section = include_dict.section %}
+<section class="section">
+  <div class="container container--md">
+
+    {% if section.title %}
+    <h2 class="section__title align-center">{{ section.title }}</h2>
+    {% endif %}
+
+    {% if section.content %}
+    <div class="section__copy">
+      {{ section.content | markdownify }}
+    </div>
+    {% endif %}
+
+  </div>
+</section>

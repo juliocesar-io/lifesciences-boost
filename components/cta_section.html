@@ -1,0 +1,26 @@
+{% set section = include_dict.section %}
+
+<section class="section section--cta">
+  <div class="container container--lg">
+
+    <div {{ classNames('section__body', 'align-center', {'inverse bg-blue': section.has_background and section.background_color == 'blue', 'bg-gray': section.has_background and section.background_color == 'gray'}) }}>
+      <div class="container container--md">
+        {% if section.title %}
+        <h2 class="section__title">{{ section.title }}</h2>
+        {% endif %}
+        {% if section.subtitle %}
+        <div class="section__copy">
+          <p>{{ section.subtitle }}</p>
+        </div>
+        {% endif %}
+        {% if section.actions %}
+        <div class="section__actions btn-group">
+          {% set include_dict = {'actions': section.actions} %}
+          {% include "section_actions.html" %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>

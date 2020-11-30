@@ -1,0 +1,26 @@
+{% set blog_feed_section = include_dict.blog_feed_section %}
+{% set post = include_dict.post_page %}
+<article class="cell">
+  <div class="card">
+    {% if post.params.image %}
+    <a class="card__media card__media--top" href="{{ post.url | relative_url }}">
+      <img src="{{ post.params.image | relative_url }}" alt="{{ post.params.title }}" />
+    </a>
+    {% endif %}
+    <div class="card__body">
+      <header class="card__header">
+        
+        {% if blog_feed_section.title %}
+          <h3 class="h4 card__title"><a href="{{ post.url | relative_url }}">{{ post.params.title }}</a></h3>
+        {% else %}
+          <h2 class="h4 card__title"><a href="{{ post.url | relative_url }}">{{ post.params.title }}</a></h2>
+        {% endif %}
+      </header>
+      {% if post.params.excerpt %}
+        <div class="card__copy">
+          <p>{{ post.params.excerpt }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>
