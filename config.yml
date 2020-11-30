@@ -4,7 +4,7 @@ init_is: "assets/js/init.js"
 page_load_js: "assets/js/page-load.js"
 page_unload_js: "assets/js/page-unload.js"
 params:
-  description: 
+  description: Boost by Life Sciences
   header:
     title: Boost by Life Sciences
     has_nav: true
