@@ -1,5 +1,5 @@
 ---
-title: 
+title: ''
 sections:
   - type: hero_section
     title: Solution Acelerators
