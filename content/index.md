@@ -1,8 +1,8 @@
 ---
-title: Boosters
+title: 
 sections:
   - type: hero_section
-    title: Boosters
+    title: Solution Acelerators
     align: center
   - type: blog_feed_section
     show_recent: false

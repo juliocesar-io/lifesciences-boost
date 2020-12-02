@@ -1,13 +1,20 @@
 baseurl: "/"
-title: "Boost By Life Sciences"
+title: "Solutions By Life Sciences"
 init_is: "assets/js/init.js"
 page_load_js: "assets/js/page-load.js"
 page_unload_js: "assets/js/page-unload.js"
 params:
-  description: Boost by Life Sciences
+  description: Solutions by Life Sciences
   header:
-    title: Boost by Life Sciences
+    title: Solutions by Life Sciences
     has_nav: true
+    nav_links:
+      - label: Demos
+        url: /showcase/category/demo
+        style: link
+      - label: Onoging Research
+        url: /showcase/category/research
+        style: link  
 sass:
   input_file: sass/main.scss
   output_file: assets/css/main.css
