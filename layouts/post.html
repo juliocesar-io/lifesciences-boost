@@ -16,5 +16,24 @@
 {% set background_size = background.background_image_size | default('cover', true) %}
 {% set background_repeat = background.background_image_repeat | default('no-repeat', true) %}
 
+<article class="post">
+  <div class="container container--md">
+
+    <div class="post__copy">
+      {{ page.content }}
+    </div>
+
+    {% if page.params.tags %}
+    <footer class="post__footer">
+      {% set include_dict = {'tags': page.params.tags} %}
+      {% include "blog_post_tags.html" %}
+    </footer>
+    {% endif %}
+
+  </div>
+</article>
+
+
+
 
 {% endblock %}
