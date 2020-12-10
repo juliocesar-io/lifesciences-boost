@@ -1,46 +1,44 @@
 stackbitVersion: ~0.3.0
-ssgName: unibit
-buildCommand: unibit build
-publishDir: output
+ssgName: gatsby
+ssgVersion: 2.3.30
+buildCommand: npm run build
+publishDir: public
 staticDir: static
 uploadDir: images
-dataDir: data
-pagesDir: content
-pageLayoutKey: layout
+dataDir: src/data
+pagesDir: src/pages
+pageLayoutKey: template
 logicFields:
   - blog_feed_section.recent_count
   - hero_section.background.background_image_opacity
-metadata:
-  title: Starter
-  description: "Ultra customizable starter. A developers' favorite."
-  author: Stackbit
-  authorURL: 'https://www.stackbit.com'
-  images:
-    small: images/demo-256x192.png
-    large: images/demo-1024x768.png
 pageData:
-  - pagePath: "/"
+  - pagePath: /
     initialExpandedPaths:
-      - "[0]"
-      - "[0].fields.title"
-      - "[0].fields.sections"
-      - "[0].fields.sections.items[0]"
-      - "[0].fields.sections.items[0].fields.title"
-      - "[0].fields.sections.items[0].fields.content"
-      - "[0].fields.sections.items[1]"
-      - "[0].fields.sections.items[1].fields.title"
-      - "[0].fields.sections.items[1].fields.subtitle"
-      - "[0].fields.sections.items[1].fields.features"
-      - "[0].fields.sections.items[0].fields.actions"
-      - "[0].fields.sections.items[0].fields.actions.items[0]"
-      - "[0].fields.sections.items[0].fields.actions.items[0].fields.label"
-      - "[1]"
-      - "[1].fields.palette"
+      - '[0]'
+      - '[0].fields.title'
+      - '[0].fields.sections'
+      - '[0].fields.sections.items[0]'
+      - '[0].fields.sections.items[0].fields.title'
+      - '[0].fields.sections.items[0].fields.content'
+      - '[0].fields.sections.items[1]'
+      - '[0].fields.sections.items[1].fields.title'
+      - '[0].fields.sections.items[1].fields.subtitle'
+      - '[0].fields.sections.items[1].fields.features'
+      - '[0].fields.sections.items[0].fields.actions'
+      - '[0].fields.sections.items[0].fields.actions.items[0]'
+      - '[0].fields.sections.items[0].fields.actions.items[0].fields.label'
+      - '[1]'
+      - '[1].fields.palette'
 models:
   config:
     type: config
     label: Site Configuration
     fields:
+      - type: string
+        name: title
+        label: Title
+        description: Site title
+        required: true
       - type: string
         name: description
         label: Site Description
@@ -48,11 +46,13 @@ models:
       - type: model
         name: header
         label: Header Configuration
-        models: [header]
+        models:
+          - header
       - type: model
         name: footer
         label: Footer Configuration
-        models: [footer]
+        models:
+          - footer
   header:
     type: object
     label: Header Configuration
@@ -77,7 +77,8 @@ models:
         description: List of navigation links in header
         items:
           type: model
-          models: [action]
+          models:
+            - action
   footer:
     type: object
     label: Footer Configuration
@@ -94,7 +95,8 @@ models:
         description: List of navigation links in footer
         items:
           type: model
-          models: [action]
+          models:
+            - action
       - type: boolean
         name: has_social
         label: Enable Social Links
@@ -106,7 +108,8 @@ models:
         description: The list of social links displayed in the footer
         items:
           type: model
-          models: [action]
+          models:
+            - action
       - type: string
         name: content
         label: Footer Content
@@ -117,7 +120,8 @@ models:
         description: A list of links displayed in the footer
         items:
           type: model
-          models: [action]
+          models:
+            - action
   person:
     type: data
     label: Person
@@ -127,12 +131,12 @@ models:
       - type: string
         name: id
         label: ID
-        description: A unique identifier used when filtering posts, e.g. "john-doe"
+        description: 'A unique identifier used when filtering posts, e.g. "john-doe"'
         required: true
       - type: string
         name: link
         label: Link
-        description: The link to the author page, e.g. "blog/author/john-doe"
+        description: 'The link to the author page, e.g. "blog/author/john-doe"'
       - type: string
         name: first_name
         label: First Name
@@ -155,12 +159,12 @@ models:
       - type: string
         name: id
         label: ID
-        description: A unique identifier used when filtering posts, e.g. "news"
+        description: 'A unique identifier used when filtering posts, e.g. "news"'
         required: true
       - type: string
         name: link
         label: Link
-        description: The link to the category page, e.g. "blog/category/news"
+        description: 'The link to the category page, e.g. "blog/category/news"'
       - type: string
         name: title
         label: Title
@@ -182,7 +186,7 @@ models:
         description: The excerpt of the page displayed in meta data
   post:
     type: page
-    urlPath: "/showcase/{slug}"
+    urlPath: '/showcase/{slug}'
     label: Post
     layout: post
     folder: showcase
@@ -205,14 +209,16 @@ models:
         name: author
         label: Author
         description: The author of the post
-        models: [person]
+        models:
+          - person
       - type: list
         name: categories
         label: Categories
         description: The categories of the post
         items:
           type: reference
-          models: [category]
+          models:
+            - category
       - type: list
         name: tags
         label: Tags
@@ -280,7 +286,9 @@ models:
       - type: boolean
         name: show_recent
         label: Show recent posts
-        description: Show the specified number of recent posts. Should not be used with author and category filters.
+        description: >-
+          Show the specified number of recent posts. Should not be used with
+          author and category filters.
         default: false
         required: true
       - type: number
@@ -290,12 +298,14 @@ models:
         name: author
         label: Author Filter
         description: Filter posts by an author
-        models: [person]
+        models:
+          - person
       - type: reference
         name: category
         label: Category Filter
         description: Filter posts by category
-        models: [category]
+        models:
+          - category
   contact_section:
     type: object
     label: Contact Section
@@ -330,7 +340,8 @@ models:
         label: Action Buttons
         items:
           type: model
-          models: [action]
+          models:
+            - action
       - type: boolean
         name: has_background
         label: Enable section background
@@ -358,7 +369,8 @@ models:
         label: Features
         items:
           type: model
-          models: [feature]
+          models:
+            - feature
   hero_section:
     type: object
     label: Hero Section
@@ -377,7 +389,8 @@ models:
         label: Action Buttons
         items:
           type: model
-          models: [action]
+          models:
+            - action
       - type: enum
         name: align
         label: Align
@@ -423,7 +436,9 @@ models:
           - type: number
             name: background_image_opacity
             label: Background Image Opacity
-            description: An integer between 0 and 100. A lower value makes the image more transparent.
+            description: >-
+              An integer between 0 and 100. A lower value makes the image more
+              transparent.
           - type: enum
             name: background_image_size
             label: Background Image Size
@@ -455,7 +470,8 @@ models:
         label: Team
         items:
           type: reference
-          models: [person]
+          models:
+            - person
   feature:
     type: object
     label: Feature
@@ -495,7 +511,8 @@ models:
         label: Action Buttons
         items:
           type: model
-          models: [action]
+          models:
+            - action
   action:
     type: object
     label: Action

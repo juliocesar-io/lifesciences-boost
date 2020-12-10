@@ -1,0 +1,20 @@
+{
+    "description": "Solutions by Life Sciences",
+    "header": {
+        "title": "Solutions by Life Sciences",
+        "has_nav": true,
+        "nav_links": [
+            {
+                "label": "Demos",
+                "url": "/showcase/category/demo",
+                "style": "link"
+            },
+            {
+                "label": "Onoging Research",
+                "url": "/showcase/category/research",
+                "style": "link"
+            }
+        ]
+    },
+    "title": "Solutions By Life Sciences"
+}
